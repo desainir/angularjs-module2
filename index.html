@@ -19,17 +19,15 @@
            <h2>To Buy:</h2>
            <ul>
              <li  ng-repeat= "buyitem in itemsToBuy.items"> Buy {{buyitem.itemQty}} {{buyitem.itemName}} 
-             <button class="btn btn-default" ng-click="itemsToBuy.movetoBoughtList($index);"> Bought</button>
+             <button class="btn btn-default" ng-click="itemsToBuy.movetoBoughtList($index);"> <span class="glyphicon glyphicon-ok"></span> Bought</button>
            </ul>
            <div class="emptyMessage" ng-if="itemsToBuy.items == ''">Everything is bought!
-           </div>
-           
+           </div>           
           </div>
-
       </div>
-   <div class="container" ng-controller = "AlreadyBoughtController as showBoughtList">
+   <div class="row">
    <!-- Already Bought List -->
-         <div ng-class="col-md-6">
+         <div class="col-md-6" class="container" ng-controller = "AlreadyBoughtController as showBoughtList">
              <h2>Already Bought:</h2>
              <ul>
                <li ng-repeat= "boughtitem in showBoughtList.items ">{{boughtitem.itemQty}} {{boughtitem.itemName}} 
