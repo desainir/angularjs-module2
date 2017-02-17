@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src = "js/angular.min.js"> </script>
+    <script src = "js/app.js"> </script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+<body ng-app="ShoppingListCheckOff">
+  <h1>Shopping List Check Off</h1>
+ 
+     <div class="row">
+
+      <!-- To Buy List -->
+          <div class="col-md-6" class="container" 
+          ng-controller="ToBuyController as itemsToBuy">
+           <h2>To Buy:</h2>
+           <ul>
+             <li  ng-repeat= "buyitem in itemsToBuy.items"> Buy {{buyitem.itemQty}} {{buyitem.itemName}} 
+             <button class="btn btn-default" ng-click="itemsToBuy.movetoBoughtList($index);"> Bought</button>
+           </ul>
+           <div class="emptyMessage" ng-if="itemsToBuy.items == ''">Everything is bought!
+           </div>
+           
+          </div>
+
+      </div>
+   <div class="container" ng-controller = "AlreadyBoughtController as showBoughtList">
+   <!-- Already Bought List -->
+         <div ng-class="col-md-6">
+             <h2>Already Bought:</h2>
+             <ul>
+               <li ng-repeat= "boughtitem in showBoughtList.items ">{{boughtitem.itemQty}} {{boughtitem.itemName}} 
+             </ul>
+            <div class="emptyMessage" ng-if="showBoughtList.items == ''">Nothing bought yet.
+            </div>
+
+         </div>
+   </div>
+</body>
+</html>
